@@ -29,6 +29,13 @@ elsif ARGV.first == 'check_images'
     puts "NOT FOUND: #{country} --> #{cmd}" if not File.exists?(filename)
   end
 
+elsif ARGV.first == 'thumbnails'
+  
+    `mkdir ../thumbs`
+    cmd = "mogrify  -format gif -path ../thumbs -thumbnail 100x100 ../images/*.png"
+    puts cmd
+    `#{cmd}`
+    
 else
 
   puts "COMMAND NOT FOUND"
