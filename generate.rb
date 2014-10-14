@@ -12,14 +12,14 @@ content_html << "<div class='row'>"
 
 CSV.foreach('data/sites.csv') do |row|
   country = row.first
-  url = row.last  
+  url = row.last
   id = country.downcase.gsub(' ','_').gsub("'",'')
   thumb_filename = "thumbs/#{id}.gif"
   image_filename = "images/#{id}.png"
 
   image = "<img src='#{thumb_filename}' class='img-responsive' width=100 height=100 style='margin-left:auto;margin-right:auto'/>"
 
-  link = "<a class='col-md-2 well' style='min-height:200px' data-toggle='lightbox' data-gallery='sites' data-title='#{country}' href='#{image_filename}'>"
+  link = "<a class='col-md-2 well' style='min-height:200px' data-toggle='lightbox' data-gallery='sites' data-title='#{country}' data-url='#{url}' href='#{image_filename}'>"
   link += image
   link += "<div class='caption text-center'>#{country}</div>"
   link += "</a>"
