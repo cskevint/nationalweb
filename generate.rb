@@ -19,6 +19,18 @@ CSV.foreach('data/sites.csv') do |row|
 
   image = "<img src='#{thumb_filename}' class='img-responsive' width=100 height=100 style='margin-left:auto;margin-right:auto'/>"
 
+  link = "<a class='col-md-2 well' style='min-height:200px;background-color:#FCF8E3;' data-toggle='lightbox' data-gallery='sites' data-title='#{country}' data-url='#{url}' href='#{image_filename}'>"
+  link += image
+  link += "<div class='caption text-center'>#{country}</div>"
+  link += "</a>"
+
+  content_html << link
+
+  thumb_filename = "thumbs/new/#{id}.gif"
+  image_filename = "images/new/#{id}.png"
+
+  image = "<img src='#{thumb_filename}' class='img-responsive' width=100 height=100 style='margin-left:auto;margin-right:auto'/>"
+
   link = "<a class='col-md-2 well' style='min-height:200px' data-toggle='lightbox' data-gallery='sites' data-title='#{country}' data-url='#{url}' href='#{image_filename}'>"
   link += image
   link += "<div class='caption text-center'>#{country}</div>"
